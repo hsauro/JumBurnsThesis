@@ -1,0 +1,157 @@
+\documentclass[11pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{Ambrosius}
+
+%\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage[version=4]{mhchem}
+%\usepackage{stmaryrd}
+%\usepackage{graphicx}
+\usepackage{relsize}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, filecolor=magenta, urlcolor=cyan,}
+\urlstyle{same}
+
+\let\origvarphi\varphi
+\renewcommand*\varphi{\mathlarger\origvarphi}
+
+\newcommand{\ols}[1]{\mskip.5\thinmuskip\overline{\mskip-.5\thinmuskip {#1} \mskip-.5\thinmuskip}\mskip.5\thinmuskip} % overline short
+\newcommand{\olsi}[1]{\,\overline{\!{#1}}} % overline short italic
+
+\newcommand\vecur[1]{\setbox0=\hbox{$#1$}\lower1ex\hbox to 0pt{\hbox to \wd0{\hss$\rightarrow\;$\hss}\hss}\box0}
+\newcommand\vecul[1]{\setbox0=\hbox{$#1$}\lower1ex\hbox to 0pt{\hbox to \wd0{\hss$\leftarrow\;$\hss}\hss}\box0}
+
+\newcommand\kcmd[1]{{\tt \textquotesingle #1\textquotesingle}}
+
+% Book size changed to 7 by 10
+\geometry{paperwidth=7in,paperheight=10in,textheight=8in,top=1.1 in,left=0.66in,right=0.66in,bindingoffset=5mm,twoside}
+
+\title{PhD Thesis:\\
+ Studies on complex enzyme systems\\ \phantom{a}\\
+
+{\Large Thesis presented for the Degree of Doctor of Philosophy of
+the University of Edinburgh in the Faculty of Science.
+May, 1971.}}
+
+\author{Jim Burns}
+\date{\large Transcribed to \LaTeX\ by Herbert M. Sauro February, 2023, based on a photocopy of the thesis obtained in 1988.}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\include{Intro}
+\include{Chapter1}
+\include{Chapter2}
+\include{Chapter3}
+\include{Chapter4}
+\include{Chapter5}
+
+
+\chapter*{Acknowledgements}
+\thispagestyle{empty}
+
+I must express my gratitude to Professor C. H. Waddington who, in the first stages of this investigation, provided support and to Professor D.S. Falconer who generously sustained and encouraged me in the later period of this work. I would also like to thank my friend Dr. H. Kacser for his patient supervision and for the many ideas which he has contributed towards this work.
+
+In addition I wish to acknowledge the many helpful discussions with Dr. I.B. Barthelmess, Dr. C.F. Curtis, Dr. O.J. Gillie, Dr. B. Watson and Mr. R.W. Tateson and many others.
+
+A special acknowledgement is due to the Edinburgh Regional Computer centre who provided computing facilities and 'know how' and also to my brother Dr. J.G. Burns for many discussions on the computing aspects of the work. Finally I would like to thank Miss A. Brown whose assistance helped greatly in finally bringing this work to term.
+
+
+\clearpage
+
+\chapter*{References}
+\thispagestyle{empty}
+
+{\small
+ACHS, M.J., GARFINKEL, D. Comput. Biomed. Res., $\underline{2}, 93$ (1968).
+
+BRIGGS, G.E, HALDANE, J.B.S., Biochem. J. 19, 338 (1925).
+
+BURGIN, G.H., Simulation 6 , No.3, (1966).
+
+BURNS, J.A. in 'Quantitative Biology of Metabolism ', 75-80, (Locker, A., Ed., Springer Verlag, New York, 1968).
+
+BURNS, J.A., FEBS Letters, 2, Suppl. "Computing Techniques in Biochemistry", S30-S33, (1969).
+
+BURNS, J.A., in "Towards a Theoretical Biology, 3: Drafts" (Edinburgh University Press, 1970).
+
+GHANCE, B., WILLIAMS, F.C. , YANG, C.C., BUSSER, J., YIGGINS, J.J., Rev.Sci.Instr. 22, 683, (1951).
+
+CHANCE, B., GARFINKEL, D., HIGGINS, J.J., HESS, B., J.Biol.Chem., 235, 2440 (1960).
+
+CHANCE, B., ESTABROOK, R., GHOSH, A., Proc. Natl.Acad. Sci., U.S., 51, 1244 (1964).
+
+CHANCE, E.M., SHEPARD, E.P., Comput.Biomed.Res., 2, 321 (1969).
+
+CLELAND, W.W., Biochim. Biophys.Acta., 67, 104-137 (1963).
+
+COOPER, G.J., FEBS Letters, $\frac{2}{2}$, Suppl. "Computing Techniques in Biochemistryn, S22-S29 (1969).
+
+DENBIGH, K.G, 4ICKS, M ., PAGE, F.M., Trans. Faraday Soc., 44, 479. (1948).
+
+'ENZYMES, THE', Ed. Boyer, P.D., Lardy, H. , Kyrbäck, K., Academic Prosi, New York, (1959).
+
+GARFINKEL, D., FRENKEL, R., GARFINKEL, L., Comput. Biomed.Res., $\underline{2}$, 31, (1968)
+
+GARFINKEL, D., FEBS ietters, $\underline{2}$, Suppl. "Computing Techniques in Biochemistry", S9-S13, (1969).
+
+GARFINKEL, D., GARFINKEL, L., PRING, M., GREEN, B.S., CHANCE, B., Ann. Rev. Biochem., 39, 473-499, (1970).
+
+GEAR, C.W., Proc. Intern. Fed. Inform. Proc. Soc., A81, Edinburgh (1968). Goodwin, B., "Temporal Organization in Cells". Academic Press, New York, (1963).
+
+** GRAINGER, J.M.R., BASS, L., J. Theoret. Biol. 10, 387, (1966).
+
+GRIFFITHS, J.S., J. Theoret. Biol., 20, 202-216 (1968a) and (1968b).
+
+HEARON, J.2., Ann.N.Y.Acad.Sci. 108 (1963).
+
+HIGGINS, J., Ann.N.Y. Acad.Sci., 108, 305-321, (1963).
+
+HIGGINS, J., J. Theoret. Biol. 21, (1968).
+
+HURST, R.0., FEBS Abstr., Intern.Meet., 8th, Prague (1968).
+
+ISAACSON, F., KELLER, H.B., 'Analysis of Numerical Methods'. John Wiley \& Sons N.Y./London (1966).
+
+KACSER, H. "Some physico-chemical aspects of biological organisation". In "The Strategy of the Genes" (C.H. Wuddington, auth.) Allen \& Unwin, London (1957).
+
+KACSER, H., in "Biological Organisation at the Cellular and Supercellular Level". p.25, Academic Press (1963).
+
+KACSER, H., BURNS, J.A., in "Quantitative Biology of Metabolism" (11-23) (Locker, A., Ed., Springer Verlag, New York) (1968).
+
+KAUFFMAN, S.A., J. Theoret. Biol., 22,437 , (1969).
+
+KING, E.L., ALTMAN, C., J. Phys. Chem., 60, 1375 (1956).
+
+** GRAINGER, J. M.R., GOFFREY, P.E., WEST, T, T, , J. Theoret. Biol. , 21, 123
+
+LEWIS, G.N., 'A New Principle of Equilibrium". Proc.Nat.Acad.Sci., i1, 179-83. (1925)
+
+LEWONTIN, R.C., Genetics, 49, 49-67 (1964).
+
+PRING, M.J., J. Theoret. Biol., 17, 430 (1967). 210.
+
+RHOADS, D.G., PRING, M. J., J. Theoret. Biol., 20, 297 (1968).
+
+ROBERTSON, A., Ann. Rev. Genet., 1 , 295-3ll (1967).
+
+REICH, J.G. FEBS letters, 2 , Suppl. " Computing Techniques in Biochemistry, S3-S8 (1969).
+
+SEGAL, H. L. in "The Enzymes", Vol.I.p.1, Academic Press, N.Y. (1959).
+
+WAGNER, P., BERGQUIST, A., Proc.Nat. Acad. Sci. 49, 892 (1963).
+
+WALTER, C., J. Theoret. Biol., 23, 23-52.
+
+WATSON, J.D., N Molecular Biology of the Gene, Benjamin, New York, (1965).
+}
+
+\end{document} 
